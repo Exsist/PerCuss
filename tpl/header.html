@@ -3,5 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>PERCUSS</title>
+    <style>
+        @font-face  {
+            font-family: Akrobat Bold;
+            src: url(fonts/acrobat/Akrobat-Bold.otf);
+        }
+
+        @font-face  {
+            font-family: Akrobat SemiBold;
+            src: url(fonts/acrobat/Akrobat-SemiBold.otf);
+        }
+
+        @font-face  {
+            font-family: Akrobat Regular;
+            src: url(fonts/acrobat/Akrobat-Regular.otf);
+        }
+
+        @font-face  {
+            font-family: Akrobat Thin;
+            src: url(fonts/acrobat/Akrobat-Thin.otf);
+        }
+
+        body {
+            margin: 0;
+            color: #b3b3b3;
+            font-size: 12pt;
+            font-family: Akrobat SemiBold;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        menu {
+            height: 50px;
+            text-align: justify;
+            padding: 80px 120px 40px;
+            margin: 0;
+        }
+
+        menu a {
+            display: inline-block;
+            color: #b3b3b3;
+        }
+
+        menu .menu-r {
+            float: left;
+        }
+
+        menu .menu-l {
+            float: right;
+        }
+
+        menu .menu-r a {
+            color: #d0814d;
+            font-size: 24pt;
+        }
+
+        menu .menu-l a {
+            text-align: right;
+            padding-left: 50px;
+            color: #b3b3b3;
+            font-size: 20pt;
+        }
+
+        footer {
+            position: fixed;
+            height: 50px;
+            width: 100%;
+            text-align: center;
+            bottom: 0;
+            font-family: Akrobat Regular;
+            padding-bottom: 40px;
+            letter-spacing: 10px;
+        }
+    </style>
 </head>
 <body>
+<menu>
+    <div class="menu-r">
+        <a href="/">PERCUSS</a>
+    </div>
+    <div class="menu-l">
+        <a href="/?page=description">ОПИСАНИЕ</a>
+        <a href="/?page=album">АЛЬБОМ</a>
+        <a href="/?page=possibility">ВОЗМОЖНОСТИ</a>
+        <a href="/">LOGIN</a>
+    </div>
+</menu>

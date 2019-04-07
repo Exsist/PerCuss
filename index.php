@@ -4,7 +4,7 @@
 
 include 'tpl/header.html';
 
-$page = (isset($_GET['page'])) ? $_GET['page']  : '';
+$page = (isset($_GET['page'])) ? $_GET['page']  : ''; // TODO: Переписать механизм подключения других страниц.
 
 if ($page == '') {
     include "tpl/main.html";
