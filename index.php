@@ -1,22 +1,15 @@
 <?php
 
-//phpinfo();
+//$connect = mysqli_connect('localhost', 'root', '', 'percuss');
+
+include 'tpl/header.html';
 
 $page = (isset($_GET['page'])) ? $_GET['page']  : '';
 
-if (isset($page)) {
-    if ($page == 'main') {
-        echo "this is $page page";
-    }
-    if ($page == 'description') {
-        echo "this is $page page";
-    }
-    if ($page == 'albums') {
-        echo "this is $page page";
-    }
-    if ($page == 'capability') {
-        echo "this is $page page";
-    }
+if ($page == '') {
+    include "tpl/main.html";
 } else {
-    echo "this is main page";
+    include "tpl/$page.html";
 }
+
+include "tpl/footer.html";
