@@ -5,30 +5,37 @@
     <title>PERCUSS</title>
     <style>
         @font-face  {
-            font-family: Akrobat Bold;
-            src: url(fonts/acrobat/Akrobat-Bold.otf);
+            font-family: AkrobatBold;
+            src: url(../static/fonts/acrobat/Akrobat-Bold.otf);
         }
 
         @font-face  {
-            font-family: Akrobat SemiBold;
-            src: url(fonts/acrobat/Akrobat-SemiBold.otf);
+            font-family: AkrobatSemiBold;
+            src: url(../static/fonts/acrobat/Akrobat-SemiBold.otf);
         }
 
         @font-face  {
-            font-family: Akrobat Regular;
-            src: url(fonts/acrobat/Akrobat-Regular.otf);
+            font-family: AkrobatRegular;
+            src: url(/PerCuss/static/fonts/acrobat/Akrobat-Regular.otf);
         }
 
         @font-face  {
-            font-family: Akrobat Thin;
-            src: url(fonts/acrobat/Akrobat-Thin.otf);
+            font-family: AkrobatThin;
+            src: url(/PerCuss/static/fonts/acrobat/Akrobat-Thin.otf);
         }
 
         body {
             margin: 0;
             color: #b3b3b3;
-            font-size: 12pt;
+            font-size: 10pt;
             font-family: Akrobat SemiBold;
+            background-image: url("/PerCuss/static/images/background/desktop-edit.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        *::selection {
+            color: #b3b3b3;
+            background-color: #b979ff;
         }
 
         a{
@@ -38,7 +45,7 @@
         menu {
             height: 50px;
             text-align: justify;
-            padding: 80px 120px 40px;
+            padding: 60px 100px 40px;
             margin: 0;
         }
 
@@ -64,7 +71,7 @@
             text-align: right;
             padding-left: 50px;
             color: #b3b3b3;
-            font-size: 20pt;
+            font-size: 16pt;
         }
 
         footer {
