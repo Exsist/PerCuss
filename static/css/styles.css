@@ -1,0 +1,193 @@
+@font-face  {
+            font-family: AkrobatBold;
+            src: url(/PerCuss/static/fonts/acrobat/Akrobat-Bold.otf);
+}
+
+@font-face  {
+    font-family: AkrobatSemiBold;
+    src: url(/PerCuss/static/fonts/acrobat/Akrobat-SemiBold.otf);
+}
+
+@font-face  {
+    font-family: AkrobatRegular;
+    src: url(/PerCuss/static/fonts/acrobat/Akrobat-Regular.otf);
+}
+
+@font-face  {
+    font-family: AkrobatThin;
+    src: url(/PerCuss/static/fonts/acrobat/Akrobat-Thin.otf);
+}
+
+body {
+    margin: 0;
+    color: #b3b3b3;
+    font-size: 10pt;
+    font-family: AkrobatSemiBold;
+    background-image: url("/PerCuss/static/images/background/desktop-edit.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+*::selection {
+    color: #b3b3b3;
+    background-color: #b979ff;
+}
+*:focus {
+    outline-color: #b979ff;
+}
+
+a{
+    text-decoration: none;
+}
+/* menu layout */
+menu {
+    height: 50px;
+    text-align: justify;
+    padding: 60px 100px 40px;
+    margin: 0;
+}
+
+menu a {
+    display: inline-block;
+    color: #b3b3b3;
+}
+
+menu .menu-r {
+    float: left;
+}
+
+menu .menu-l {
+    float: right;
+}
+
+menu .menu-r a {
+    color: #d0814d;
+    font-size: 24pt;
+}
+
+menu .menu-l a {
+    text-align: right;
+    padding-left: 50px;
+    color: #b3b3b3;
+    font-size: 16pt;
+}
+menu .menu-l a:hover {
+    
+    text-shadow: 0px 0px 10px rgba(0,0,0, 0.7);
+    color: #d0814d;
+}
+/* main template */  
+div.content.main {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    /* unnecessary styling properties */
+    max-width: 50%;
+    text-align: center;
+    width: 100%;
+}
+div.content.main .upload-btn {
+    width: 300px;
+    height: 50px;
+    color: #b3b3b3;
+    background-color: #383838;
+    font-family: AkrobatThin;
+    font-size: 15px;
+    letter-spacing: 10px;
+    border-radius: 35px;
+    margin: 0 auto; 
+    padding-top: 10px;
+    text-align: center;
+    border: 3px dashed #d0814d;
+}
+div.content.main .upload-btn:focus {
+    outline: none;
+}
+div.content.main .upload-btn:hover {
+    font-family: AkrobatBold;
+    border: 3px solid #d0814d;
+}
+div.content.main h1, div.content.main p {
+    margin: 0;
+}
+div.content.main h1 {
+    font-size: 46pt;
+    color: #d0814d;
+}
+div.content.main p {
+    font-size: 16pt;
+    font-family: AkrobatThin;
+    padding-bottom: 60px;
+}
+div.content.main p.legend {
+    padding-top: 60px;
+    padding-bottom: 0;
+    letter-spacing: 10px;
+}
+div.content.main p span {
+    font-size: 16pt;
+    font-family: AkrobatBold;
+    color: #d0814d;
+}
+
+/* edding zone */
+div.editing-form {
+/*    display: none;*/
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+div.editing-form .cancel-editing-form {
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    right: 0;
+    background: linear-gradient(to left, rgba(150,150,150,0.2) 0%,rgba(150,150,150,0) 100%);
+    color: #d3d3d3;
+}
+div.editing-form .cancel-editing-form .cancel {
+   text-align: center;
+}
+
+div.editing-form .editing-zone {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background-color: whitesmoke;
+    top:10%;
+    bottom:10%;
+    right:10%;
+    left:10%;
+    border-radius: 25px;
+    box-shadow: 0px 0px 50px 10px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+div.editing-form .editing-zone .editing-zone-image {
+    position: absolute;
+    width: 70%;
+    height: 100%;
+}
+div.editing-form .editing-zone .editing-methods {
+    position: absolute;
+    left: 70%;
+    width: 30%;
+    height: 100%;
+    border-left: 5px solid #d0814d;
+}
+
+
+/* footer */
+footer {
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    font-family: AkrobatRegular;
+    padding-bottom: 40px;
+    letter-spacing: 10px;
+}
