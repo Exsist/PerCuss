@@ -2,17 +2,14 @@
             font-family: AkrobatBold;
             src: url(/PerCuss/static/fonts/acrobat/Akrobat-Bold.otf);
 }
-
 @font-face  {
     font-family: AkrobatSemiBold;
     src: url(/PerCuss/static/fonts/acrobat/Akrobat-SemiBold.otf);
 }
-
 @font-face  {
     font-family: AkrobatRegular;
     src: url(/PerCuss/static/fonts/acrobat/Akrobat-Regular.otf);
 }
-
 @font-face  {
     font-family: AkrobatThin;
     src: url(/PerCuss/static/fonts/acrobat/Akrobat-Thin.otf);
@@ -34,7 +31,6 @@ body {
 *:focus {
     outline-color: #b979ff;
 }
-
 a{
     text-decoration: none;
 }
@@ -45,25 +41,20 @@ menu {
     padding: 60px 100px 40px;
     margin: 0;
 }
-
 menu a {
     display: inline-block;
     color: #b3b3b3;
 }
-
 menu .menu-r {
     float: left;
 }
-
 menu .menu-l {
     float: right;
 }
-
 menu .menu-r a {
     color: #d0814d;
     font-size: 24pt;
 }
-
 menu .menu-l a {
     text-align: right;
     padding-left: 50px;
@@ -76,7 +67,7 @@ menu .menu-l a:hover {
     color: #d0814d;
 }
 /* main template */  
-div.content.main {
+div.content {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -133,7 +124,7 @@ div.content.main p span {
 
 /* edding zone */
 div.editing-form {
-/*    display: none;*/
+    display: none;
     position: fixed;
     top: 0;
     width: 100%;
@@ -150,9 +141,10 @@ div.editing-form .cancel-editing-form {
     color: #d3d3d3;
 }
 div.editing-form .cancel-editing-form .cancel {
-   text-align: center;
+    text-align: center;
+    color: #d0814d;
+    font-size: 30pt;
 }
-
 div.editing-form .editing-zone {
     position: absolute;
     width: 80%;
@@ -178,7 +170,18 @@ div.editing-form .editing-zone .editing-methods {
     height: 100%;
     border-left: 5px solid #d0814d;
 }
+/* possibility */
 
+.pos-image {
+    background-color: #d0814d;
+    width: 50%;
+    height: 100px;
+    margin: 0 auto; 
+}
+.pos-image.cut {
+    background-image: url(/PerCuss/static/images/background/desktop-edit.png); 
+    background-size: auto;
+}
 
 /* footer */
 footer {
