@@ -47,4 +47,16 @@ window.onload = function () {
         $(".editing-image").css("background-image", '');
         console.log('Закрытие формы обработки фотографии');
     });
+    $("div.editing-folder-presets").on('click', function (event) {
+        $("div.editing-methods").css('display', 'none');
+        $("div.editing-presets").css('display', 'block');
+        $("div.action-choose-buttons").css('display', 'block');
+    });
+    $("div.action-choose-buttons").on("click", function (event) {
+       if ($("div.editing-presets").css('display') == "block") {
+           $("div.editing-presets").css('display', 'none');
+           $("div.action-choose-buttons").css('display', 'none');
+           $("div.editing-methods").css('display', 'block');
+       }
+    });
 };

@@ -15,10 +15,11 @@
     src: url(/PerCuss/static/fonts/acrobat/Akrobat-Thin.otf);
 }
 
-@media screen and (max-width: 1024px) and (max-height: 1280px){
-   body {
-       background-size: contain;
-   }
+@media screen and (max-width: 1280px) and (max-height: 1024px) {
+   /* 4:3 */
+}
+@media screen and (max-width: 1280px) and (max-height: 1024px) {
+   /* 4:3 */
 }
 
 body {
@@ -31,11 +32,15 @@ body {
     background-image: url("/PerCuss/static/images/background/desktop-edit.png");
     background-repeat: no-repeat;
 }
-*::selection {
+/* width */
+::-webkit-scrollbar {
+    display: none;
+}
+::selection {
     color: #b3b3b3;
     background-color: #b979ff;
 }
-*:focus {
+:focus {
     outline-color: #b979ff;
 }
 a{
@@ -73,14 +78,13 @@ menu .menu-l a:hover {
     text-shadow: 0px 0px 10px rgba(0,0,0, 0.7);
     color: #d0814d;
 }
+
 /* main template */  
 div.content {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-
-    /* unnecessary styling properties */
     max-width: 50%;
     text-align: center;
     width: 100%;
@@ -129,9 +133,9 @@ div.content.main p span {
     color: #d0814d;
 }
 
-/* edding zone */
+    /* editing zone */
 div.editing-form {
-    display: none;
+    display: block;
     position: fixed;
     top: 0;
     width: 100%;
@@ -162,7 +166,7 @@ div.editing-form .editing-zone {
     right:10%;
     left:10%;
     border-radius: 25px;
-    box-shadow: 0px 0px 50px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 50px 10px rgba(0,0,0,0.2);
     z-index: 10;
 }
 div.editing-form .editing-zone .editing-zone-image {
@@ -180,17 +184,85 @@ div.editing-form .editing-zone .editing-zone-image .editing-image {
     background-size: contain;
     width: 80%;
     height: 80%;
+    background-image: url("/PerCuss/uploads/DSCN1934.JPG");
     background-position: center;
 }
-div.editing-form .editing-zone .editing-methods {
+div.editing-form .editing-zone .editing-methods-zone {
     position: absolute;
     left: 70%;
     width: 30%;
     height: 100%;
     border-left: 5px solid #d0814d;
+    overflow-y: scroll;
+    color: #383838;
 }
-/* possibility */
+div.editing-form .editing-zone .editing-methods-zone .editing-methods, .editing-presets  {
+    position: absolute;
+    margin: 50px 5% auto;
+}
+div.editing-form .editing-zone .editing-methods-zone .editing-methods .editing-method {
+    width: 120px;
+    height: 120px;
+    display: inline-block;
+    margin: 1.5%;
+    background-color: #d0814d;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+div.editing-form .editing-zone .editing-methods-zone .editing-methods .editing-method.editing-folder-presets {
+    background-color: #b3b3b3;
+}
 
+div.editing-form .editing-zone .editing-methods-zone .editing-presets {
+    display: none;
+    width: 90%;
+}
+div.editing-form .editing-zone .editing-methods-zone .editing-presets .presets-name {
+    display: block;
+    height: 30px;
+    text-align: center;
+}
+div.editing-form .editing-zone .editing-methods-zone .editing-presets .editing-method {
+    width: 120px;
+    height: 120px;
+    display: inline-block;
+    margin: 1.5%;
+    background-color: #d0814d;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+div.editing-form .editing-zone .editing-methods-zone .action-buttons {
+    width: 90%;
+    margin-left: -5px;
+    height: 30px;
+    border-bottom: 3px #383838 solid;
+    padding: 10px 5%;
+    text-align: center;
+}
+div.editing-form .editing-zone .editing-methods-zone .action-buttons.action-choose-buttons {
+    display: none;
+}
+div.editing-form .editing-zone .editing-methods-zone .action-buttons.action-method-buttons {
+    display: none;
+}
+div.editing-form .editing-zone .editing-methods-zone .action-buttons span.back {
+    font-size: 16pt;
+    float: left;
+}
+div.editing-form .editing-zone .editing-methods-zone .action-buttons span.agree-method {
+    font-size: 20pt;
+    float: left;
+}
+div.editing-form .editing-zone .editing-methods-zone .action-buttons span.cancel-method {
+    font-size: 20pt;
+    float: right;
+}
+    /* editing zone */
+/* main template */
+
+/* possibility template */
 div.pos-image {
     background-color: #d0814d;
     width: 50%;
@@ -201,6 +273,7 @@ div.pos-image.cut {
     background-image: url("/PerCuss/static/images/background/desktop-edit.png"); 
     background-size: auto;
 }
+/* possibility template */
 
 /* footer */
 footer {
