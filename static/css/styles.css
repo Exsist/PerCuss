@@ -15,13 +15,6 @@
     src: url(/PerCuss/static/fonts/acrobat/Akrobat-Thin.otf);
 }
 
-@media screen and (max-width: 1280px) and (max-height: 1024px) {
-   /* 4:3 */
-}
-@media screen and (max-width: 1280px) and (max-height: 1024px) {
-   /* 4:3 */
-}
-
 body {
     width: 100%;
     height: 100%;
@@ -30,7 +23,11 @@ body {
     font-size: 10pt;
     font-family: AkrobatSemiBold;
     background-image: url("/PerCuss/static/images/background/desktop-edit.png");
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 /* width */
 ::-webkit-scrollbar {
@@ -74,12 +71,12 @@ menu .menu-l a {
     font-size: 16pt;
 }
 menu .menu-l a:hover {
-    
+
     text-shadow: 0px 0px 10px rgba(0,0,0, 0.7);
     color: #d0814d;
 }
 
-/* main template */  
+/* main template */
 div.content {
     position: absolute;
     left: 50%;
@@ -98,7 +95,7 @@ div.content.main .upload-btn {
     font-size: 15px;
     letter-spacing: 10px;
     border-radius: 35px;
-    margin: 0 auto; 
+    margin: 0 auto;
     padding-top: 10px;
     text-align: center;
     border: 3px dashed #d0814d;
@@ -108,7 +105,7 @@ div.content.main .upload-btn:focus {
 }
 div.content.main .upload-btn:hover {
     font-family: AkrobatBold;
-    border: 3px solid #d0814d;
+    border-style: solid;
 }
 div.content.main h1, div.content.main p {
     margin: 0;
@@ -267,10 +264,10 @@ div.pos-image {
     background-color: #d0814d;
     width: 50%;
     height: 100px;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 div.pos-image.cut {
-    background-image: url("/PerCuss/static/images/background/desktop-edit.png"); 
+    background-image: url("/PerCuss/static/images/background/desktop-edit.png");
     background-size: auto;
 }
 /* possibility template */
@@ -286,3 +283,174 @@ footer {
     padding-bottom: 40px;
     letter-spacing: 10px;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media screen and (orientation: portrait) {
+    menu {
+        padding: 100px 100px;
+    }
+    menu .menu-r a {
+        font-size: 72pt;
+    }
+    menu .menu-l a {
+        display: none;
+        font-size: 72pt;
+    }
+    menu .menu-button{
+        width: 72pt;
+        height: 72pt;
+    }
+    menu .menu-button .block-button{
+        position: relative;
+        width: 100%;
+        height: 10%;
+        margin-bottom: 15%;
+        margin-top: 15%;
+        background-color: #d0814d;
+        display: block;
+    }
+
+    div.content.main h1 {
+        font-size: 100pt;
+    }
+    div.content.main p, div.content.main p span {
+        font-size: 36pt;
+    }
+    div.content {
+        max-width: 90%;
+    }
+    div.content.main .upload-btn {
+        width: 600px;
+        height: 150px;
+        font-size: 40pt;
+        border-radius: 90px;
+        border: 5px dashed #d0814d;
+    }
+
+    div.editing-form .editing-zone {
+        width: 100%;
+        height: 100%;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+        border-radius: unset;
+        box-shadow: none;
+    }
+    div.editing-form .cancel-editing-form {
+         width: 100%;
+         height: 5%;
+         top: 0;
+        padding-top: 5px;
+         background: #383838;
+         color: #d3d3d3;
+         z-index: 1000;
+    }
+    div.editing-form .editing-zone .editing-zone-image {
+        width: 100%;
+        height: 60%;
+        margin-top: 10%;
+    }
+    div.editing-form .editing-zone .editing-zone-image .editing-image {
+        width: 100%;
+        height: 100%;
+    }
+    div.editing-form .editing-zone .editing-methods-zone {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 600%;
+        height: 30%;
+        border-left: none;
+        border-top: 10px #d0814d solid ;
+        overflow-y: hidden;
+        overflow-x: scroll;
+    }
+    div.editing-form .editing-zone .editing-methods-zone .editing-methods {
+        margin: 20px ;
+    }
+    div.editing-form .editing-zone .editing-methods-zone .editing-methods .editing-method {
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+        margin: 20px;
+        background-color: #d0814d;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+    }
+
+    footer {
+        height: 10%;
+        width: 90%;
+        font-size: 36pt;
+        letter-spacing: 0px;
+        margin: 0 5%;
+    }
+}
+
+/*@media screen and (max-width: 768px) {*/
+/*    menu {*/
+/*        padding: 40px 60px 40px;*/
+/*    }*/
+/*    menu .menu-r a {*/
+/*        font-size: 36pt;*/
+/*    }*/
+/*    menu .menu-l a {*/
+/*        display: none;*/
+/*        font-size: 36pt;*/
+/*    }*/
+/*    menu .menu-button{*/
+/*        width: 36pt;*/
+/*        height: 36pt;*/
+/*    }*/
+/*    menu .menu-button .block-button{*/
+/*        position: relative;*/
+/*        width: 100%;*/
+/*        height: 10%;*/
+/*        margin-bottom: 15%;*/
+/*        margin-top: 15%;*/
+/*        background-color: #d0814d;*/
+/*        display: block;*/
+/*    }*/
+
+
+/*    div.content .main h1 {*/
+/*        font-size: 72pt;*/
+/*    }*/
+/*    div.content.main p {*/
+/*        font-size: 20pt*/
+/*    }*/
+/*    div.content.main p span {*/
+/*        font-size: 20pt;*/
+/*    }*/
+/*    div.content {*/
+/*        max-width: 90%;*/
+/*    }*/
+/*    div.content.main .upload-btn {*/
+/*        width: 350px;*/
+/*        height: 75px;*/
+/*        font-size: 26px;*/
+/*        border-radius: 90px;*/
+/*        border: 5px dashed #d0814d;*/
+/*    }*/
+
+/*    footer {*/
+/*        height: 75px;*/
+/*        width: 90%;*/
+/*        font-size: 16pt;*/
+/*        letter-spacing: 0;*/
+/*        margin: 0 5%;*/
+/*    }*/
+/*}*/
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media screen and (max-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media screen and (max-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media screen and (max-width: 1200px) { }

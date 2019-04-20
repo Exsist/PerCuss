@@ -55,8 +55,8 @@ window.onload = function () {
     $("div.action-choose-buttons").on("click", function (event) {
        if ($("div.editing-presets").css('display') == "block") {
            $("div.editing-presets").css('display', 'none');
-           $("div.action-choose-buttons").css('display', 'none');
            $("div.editing-methods").css('display', 'block');
+           $("div.action-choose-buttons").css('display', 'none');
        }
     });
 };
