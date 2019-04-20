@@ -4,6 +4,7 @@
 
 include 'tpl/header.html';
 $path = (isset($_SERVER['REQUEST_URI'])) ? $_SERVER['REQUEST_URI'] : '';
+$file_path = '';
 if ($path) { // TODO: СДЕЛАТЬ РАЗЛИЧНЫЕ ЗАПРОСЫ
     if ($path == "/upload/image") {
         if (isset($_FILES['user_image']['name'])) {
@@ -15,13 +16,14 @@ if ($path) { // TODO: СДЕЛАТЬ РАЗЛИЧНЫЕ ЗАПРОСЫ
                 } else {
                     move_uploaded_file($_FILES['user_image']['tmp_name'], 'uploads/' . $_FILES['user_image']['name']);
                     echo 'File successfully uploaded : uploads/' . $_FILES['user_image']['name'];
+                    $file_path = 'uploads/' . $_FILES['user_image']['name'];
                 }
             }
         } else {
             echo 'Please choose a file';
         }
-//        $source_path = $_FILES['user_image'];
-//        print_r($source_path);
+    } elseif ($path == '/effect/1') {
+
     }
 }
 
