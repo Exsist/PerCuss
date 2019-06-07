@@ -1,18 +1,18 @@
 @font-face  {
-            font-family: AkrobatBold;
-            src: url(/PerCuss/static/fonts/acrobat/Akrobat-Bold.otf);
+    font-family: AkrobatBold;
+    src: url(/static/fonts/acrobat/Akrobat-Bold.otf);
 }
 @font-face  {
     font-family: AkrobatSemiBold;
-    src: url(/PerCuss/static/fonts/acrobat/Akrobat-SemiBold.otf);
+    src: url(/static/fonts/acrobat/Akrobat-SemiBold.otf);
 }
 @font-face  {
     font-family: AkrobatRegular;
-    src: url(/PerCuss/static/fonts/acrobat/Akrobat-Regular.otf);
+    src: url(/static/fonts/acrobat/Akrobat-Regular.otf);
 }
 @font-face  {
     font-family: AkrobatThin;
-    src: url(/PerCuss/static/fonts/acrobat/Akrobat-Thin.otf);
+    src: url(/static/fonts/acrobat/Akrobat-Thin.otf);
 }
 
 body {
@@ -22,7 +22,7 @@ body {
     color: #b3b3b3;
     font-size: 10pt;
     font-family: AkrobatSemiBold;
-    background-image: url("/PerCuss/static/images/background/desktop-edit.png");
+    background-image: url("/static/images/background/desktop-edit.png");
     -webkit-background-size: cover;
     background-size: cover;
     background-position: center;
@@ -71,7 +71,11 @@ menu .menu-l a {
     font-size: 16pt;
 }
 menu .menu-l a:hover {
+    text-shadow: 0px 0px 10px rgba(0,0,0, 0.7);
+    color: #d0814d;
+}
 
+menu .menu-l .active {
     text-shadow: 0px 0px 10px rgba(0,0,0, 0.7);
     color: #d0814d;
 }
@@ -86,7 +90,7 @@ div.content {
     text-align: center;
     width: 100%;
 }
-div.content.main .upload-btn {
+div.content.main #upload-btn {
     width: 300px;
     height: 50px;
     color: #b3b3b3;
@@ -100,10 +104,10 @@ div.content.main .upload-btn {
     text-align: center;
     border: 3px dashed #d0814d;
 }
-div.content.main .upload-btn:focus {
+div.content.main #upload-btn:focus {
     outline: none;
 }
-div.content.main .upload-btn:hover {
+div.content.main #upload-btn:hover {
     font-family: AkrobatBold;
     border-style: solid;
 }
@@ -131,132 +135,198 @@ div.content.main p span {
 }
 
     /* editing zone */
-div.editing-form {
-    display: block;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 100;
-}
-div.editing-form .cancel-editing-form {
-    position: absolute;
-    width: 10%;
-    height: 100%;
-    right: 0;
-    background: linear-gradient(to left, rgba(150,150,150,0.2) 0%,rgba(150,150,150,0) 100%);
-    color: #d3d3d3;
-}
-div.editing-form .cancel-editing-form .cancel {
-    text-align: center;
-    color: #d0814d;
-    font-size: 30pt;
-}
-div.editing-form .editing-zone {
-    position: absolute;
-    width: 80%;
-    height: 80%;
-    background-color: whitesmoke;
-    top:10%;
-    bottom:10%;
-    right:10%;
-    left:10%;
-    border-radius: 25px;
-    box-shadow: 0 0 50px 10px rgba(0,0,0,0.2);
-    z-index: 10;
-}
-div.editing-form .editing-zone .editing-zone-image {
-    position: absolute;
-    width: 70%;
-    height: 100%;
-}
-div.editing-form .editing-zone .editing-zone-image .editing-image {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    /*background-color: #b3b3b3;*/
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 80%;
-    height: 80%;
-    background-image: url("/PerCuss/uploads/DSCN1934.JPG");
-    background-position: center;
-}
-div.editing-form .editing-zone .editing-methods-zone {
-    position: absolute;
-    left: 70%;
-    width: 30%;
-    height: 100%;
-    border-left: 5px solid #d0814d;
-    overflow-y: scroll;
-    color: #383838;
-}
-div.editing-form .editing-zone .editing-methods-zone .editing-methods, .editing-presets  {
-    position: absolute;
-    margin: 50px 5% auto;
-}
-div.editing-form .editing-zone .editing-methods-zone .editing-methods .editing-method {
-    width: 120px;
-    height: 120px;
-    display: inline-block;
-    margin: 1.5%;
-    background-color: #d0814d;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-}
-div.editing-form .editing-zone .editing-methods-zone .editing-methods .editing-method.editing-folder-presets {
-    background-color: #b3b3b3;
-}
+    div.editing-form {
+        display: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 100;
+    }
+    div.editing-form #cancel-editing-form {
+        position: absolute;
+        width: 10%;
+        height: 100%;
+        right: 0;
+        background: linear-gradient(to left, rgba(150,150,150,0.2) 0%,rgba(150,150,150,0) 100%);
+        color: #d3d3d3;
+    }
+    div.editing-form #cancel-editing-form .cancel {
+        text-align: center;
+        color: #d0814d;
+        font-size: 30pt;
+    }
+    div.editing-form .editing-zone {
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        background-color: whitesmoke;
+        top:10%;
+        bottom:10%;
+        right:10%;
+        left:10%;
+        border-radius: 25px;
+        box-shadow: 0 0 50px 10px rgba(0,0,0,0.2);
+        z-index: 1000;
+    }
+    div.editing-form .editing-zone .editing-zone-image {
+        position: absolute;
+        width: 70%;
+        height: 100%;
+    }
+    div.editing-form .editing-zone .editing-zone-image .editing-image {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        /*background-color: #b3b3b3;*/
+        background-image: none;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 90%;
+        height: 90%;
+        background-position: center;
+    }
+    div.editing-form .editing-zone .editing-methods-zone {
+        position: absolute;
+        left: 70%;
+        width: 30%;
+        height: 100%;
+        border-left: 5px solid #d0814d;
+        overflow-y: scroll;
+        color: #383838;
+    }
+    div.editing-form .editing-zone .editing-methods-zone .editing-methods, .editing-presets  {
+        position: absolute;
+        margin: 50px 5% auto;
+    }
+    div.editing-form .editing-zone .editing-methods-zone .editing-methods .editing-method {
+        width: 120px;
+        height: 120px;
+        display: inline-block;
+        margin: 1.5%;
+        background-color: #d0814d;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+    }
+    div.editing-form .editing-zone .editing-methods-zone .editing-methods .editing-method.editing-folder-presets {
+        background-color: #b3b3b3;
+    }
 
-div.editing-form .editing-zone .editing-methods-zone .editing-presets {
-    display: none;
-    width: 90%;
-}
-div.editing-form .editing-zone .editing-methods-zone .editing-presets .presets-name {
-    display: block;
-    height: 30px;
-    text-align: center;
-}
-div.editing-form .editing-zone .editing-methods-zone .editing-presets .editing-method {
-    width: 120px;
-    height: 120px;
-    display: inline-block;
-    margin: 1.5%;
-    background-color: #d0814d;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-}
-div.editing-form .editing-zone .editing-methods-zone .action-buttons {
-    width: 90%;
-    margin-left: -5px;
-    height: 30px;
-    border-bottom: 3px #383838 solid;
-    padding: 10px 5%;
-    text-align: center;
-}
-div.editing-form .editing-zone .editing-methods-zone .action-buttons.action-choose-buttons {
-    display: none;
-}
-div.editing-form .editing-zone .editing-methods-zone .action-buttons.action-method-buttons {
-    display: none;
-}
-div.editing-form .editing-zone .editing-methods-zone .action-buttons span.back {
-    font-size: 16pt;
-    float: left;
-}
-div.editing-form .editing-zone .editing-methods-zone .action-buttons span.agree-method {
-    font-size: 20pt;
-    float: left;
-}
-div.editing-form .editing-zone .editing-methods-zone .action-buttons span.cancel-method {
-    font-size: 20pt;
-    float: right;
-}
+    div.editing-form .editing-zone .editing-methods-zone .editing-presets {
+        display: none;
+        width: 90%;
+    }
+    div.editing-form .editing-zone .editing-methods-zone .editing-presets .presets-name {
+        display: block;
+        height: 30px;
+        text-align: center;
+    }
+    div.editing-form .editing-zone .editing-methods-zone .editing-presets .editing-method {
+        width: 120px;
+        height: 120px;
+        display: inline-block;
+        margin: 1.5%;
+        background-color: #d0814d;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+    }
+    div.editing-form .editing-zone .editing-methods-zone .action-buttons {
+        width: 90%;
+        margin-left: -5px;
+        height: 30px;
+        border-bottom: 3px #383838 solid;
+        padding: 10px 5%;
+        text-align: center;
+    }
+    div.editing-form .editing-zone .editing-methods-zone .action-buttons.action-choose-buttons {
+        display: none;
+    }
+    div.editing-form .editing-zone .editing-methods-zone .action-buttons.action-method-buttons {
+        display: none;
+    }
+    div.editing-form .editing-zone .editing-methods-zone .action-buttons span.back {
+        font-size: 16pt;
+        float: left;
+    }
+    div.editing-form .editing-zone .editing-methods-zone .action-buttons span.agree-method {
+        font-size: 20pt;
+        float: left;
+    }
+    div.editing-form .editing-zone .editing-methods-zone .action-buttons span.cancel-method {
+        font-size: 20pt;
+        float: right;
+    }
     /* editing zone */
+    /* login/register zone*/
+    div.login-form {
+        display: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 100;
+    }
+    div.login-form .login-zone {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background-color: whitesmoke;
+        color: #383838;
+        top:25%;
+        bottom:25%;
+        right:35%;
+        left:35%;
+        border-radius: 25px;
+        box-shadow: 0 0 50px 10px rgba(0,0,0,0.2);
+        text-align: center;
+        z-index: 1000;
+    }
+    div.login-form .login-zone form.login-content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    div.login-form .login-zone form.login-content input.text, input.button {
+        height: 30px;
+        border: none;
+        border-radius: 30px;
+        font-family: AkrobatRegular;
+        font-size: 12pt ;
+
+    }
+    div.login-form .login-zone form.login-content input.text {
+        width: 250px;
+        background-color: #383838;
+        color: whitesmoke;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    div.login-form .login-zone form.login-content input.button {
+        margin-top: 30px;
+        width: 150px;
+        background-color: #d0814d;
+        color: whitesmoke;
+        letter-spacing: 2px;
+    }
+    div.login-form .login-zone form.login-content input:focus {
+        outline: none;
+    }
+    div.successful-authorization {
+        display: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 100;
+    }
+    /* login/register zone*/
 /* main template */
 
 /* possibility template */
@@ -267,7 +337,7 @@ div.pos-image {
     margin: 0 auto;
 }
 div.pos-image.cut {
-    background-image: url("/PerCuss/static/images/background/desktop-edit.png");
+    background-image: url("/static/images/background/desktop-edit.png");
     background-size: auto;
 }
 /* possibility template */
@@ -284,125 +354,22 @@ footer {
     letter-spacing: 10px;
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media screen and (orientation: portrait) {
-    menu {
-        padding: 100px 100px;
-    }
-    menu .menu-r a {
-        font-size: 72pt;
-    }
-    menu .menu-l a {
-        display: none;
-        font-size: 72pt;
-    }
-    menu .menu-button{
-        width: 72pt;
-        height: 72pt;
-    }
-    menu .menu-button .block-button{
-        position: relative;
-        width: 100%;
-        height: 10%;
-        margin-bottom: 15%;
-        margin-top: 15%;
-        background-color: #d0814d;
-        display: block;
-    }
-
-    div.content.main h1 {
-        font-size: 100pt;
-    }
-    div.content.main p, div.content.main p span {
-        font-size: 36pt;
-    }
-    div.content {
-        max-width: 90%;
-    }
-    div.content.main .upload-btn {
-        width: 600px;
-        height: 150px;
-        font-size: 40pt;
-        border-radius: 90px;
-        border: 5px dashed #d0814d;
-    }
-
-    div.editing-form .editing-zone {
-        width: 100%;
-        height: 100%;
-        top:0;
-        bottom:0;
-        right:0;
-        left:0;
-        border-radius: unset;
-        box-shadow: none;
-    }
-    div.editing-form .cancel-editing-form {
-         width: 100%;
-         height: 5%;
-         top: 0;
-        padding-top: 5px;
-         background: #383838;
-         color: #d3d3d3;
-         z-index: 1000;
-    }
-    div.editing-form .editing-zone .editing-zone-image {
-        width: 100%;
-        height: 60%;
-        margin-top: 10%;
-    }
-    div.editing-form .editing-zone .editing-zone-image .editing-image {
-        width: 100%;
-        height: 100%;
-    }
-    div.editing-form .editing-zone .editing-methods-zone {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 600%;
-        height: 30%;
-        border-left: none;
-        border-top: 10px #d0814d solid ;
-        overflow-y: hidden;
-        overflow-x: scroll;
-    }
-    div.editing-form .editing-zone .editing-methods-zone .editing-methods {
-        margin: 20px ;
-    }
-    div.editing-form .editing-zone .editing-methods-zone .editing-methods .editing-method {
-        width: 200px;
-        height: 200px;
-        display: inline-block;
-        margin: 20px;
-        background-color: #d0814d;
-        -webkit-border-radius: 20px;
-        -moz-border-radius: 20px;
-        border-radius: 20px;
-    }
-
-    footer {
-        height: 10%;
-        width: 90%;
-        font-size: 36pt;
-        letter-spacing: 0px;
-        margin: 0 5%;
-    }
-}
-
-/*@media screen and (max-width: 768px) {*/
+/*!**/
+/*!* Extra small devices (phones, 600px and down) *!*/
+/*@media screen and (orientation: portrait) {*/
 /*    menu {*/
-/*        padding: 40px 60px 40px;*/
+/*        padding: 100px 100px;*/
 /*    }*/
 /*    menu .menu-r a {*/
-/*        font-size: 36pt;*/
+/*        font-size: 72pt;*/
 /*    }*/
 /*    menu .menu-l a {*/
 /*        display: none;*/
-/*        font-size: 36pt;*/
+/*        font-size: 72pt;*/
 /*    }*/
 /*    menu .menu-button{*/
-/*        width: 36pt;*/
-/*        height: 36pt;*/
+/*        width: 72pt;*/
+/*        height: 72pt;*/
 /*    }*/
 /*    menu .menu-button .block-button{*/
 /*        position: relative;*/
@@ -414,43 +381,83 @@ footer {
 /*        display: block;*/
 /*    }*/
 
-
-/*    div.content .main h1 {*/
-/*        font-size: 72pt;*/
+/*    div.content.main h1 {*/
+/*        font-size: 100pt;*/
 /*    }*/
-/*    div.content.main p {*/
-/*        font-size: 20pt*/
-/*    }*/
-/*    div.content.main p span {*/
-/*        font-size: 20pt;*/
+/*    div.content.main p, div.content.main p span {*/
+/*        font-size: 36pt;*/
 /*    }*/
 /*    div.content {*/
 /*        max-width: 90%;*/
 /*    }*/
 /*    div.content.main .upload-btn {*/
-/*        width: 350px;*/
-/*        height: 75px;*/
-/*        font-size: 26px;*/
+/*        width: 600px;*/
+/*        height: 150px;*/
+/*        font-size: 40pt;*/
 /*        border-radius: 90px;*/
 /*        border: 5px dashed #d0814d;*/
 /*    }*/
 
+/*    div.editing-form .editing-zone {*/
+/*        width: 100%;*/
+/*        height: 100%;*/
+/*        top:0;*/
+/*        bottom:0;*/
+/*        right:0;*/
+/*        left:0;*/
+/*        border-radius: unset;*/
+/*        box-shadow: none;*/
+/*    }*/
+/*    div.editing-form .cancel-editing-form {*/
+/*         width: 100%;*/
+/*         height: 5%;*/
+/*         top: 0;*/
+/*        padding-top: 5px;*/
+/*         background: #383838;*/
+/*         color: #d3d3d3;*/
+/*         z-index: 1000;*/
+/*    }*/
+/*    div.editing-form .editing-zone .editing-zone-image {*/
+/*        width: 100%;*/
+/*        height: 60%;*/
+/*        margin-top: 10%;*/
+/*    }*/
+/*    div.editing-form .editing-zone .editing-zone-image .editing-image {*/
+/*        width: 100%;*/
+/*        height: 100%;*/
+/*    }*/
+/*    div.editing-form .editing-zone .editing-methods-zone {*/
+/*        position: absolute;*/
+/*        left: 0;*/
+/*        bottom: 0;*/
+/*        width: 600%;*/
+/*        height: 30%;*/
+/*        border-left: none;*/
+/*        border-top: 10px #d0814d solid ;*/
+/*        overflow-y: hidden;*/
+/*        overflow-x: scroll;*/
+/*    }*/
+/*    div.editing-form .editing-zone .editing-methods-zone .editing-methods {*/
+/*        margin: 20px ;*/
+/*    }*/
+/*    div.editing-form .editing-zone .editing-methods-zone .editing-methods .editing-method {*/
+/*        width: 200px;*/
+/*        height: 200px;*/
+/*        display: inline-block;*/
+/*        margin: 20px;*/
+/*        background-color: #d0814d;*/
+/*        -webkit-border-radius: 20px;*/
+/*        -moz-border-radius: 20px;*/
+/*        border-radius: 20px;*/
+/*    }*/
+
+
 /*    footer {*/
-/*        height: 75px;*/
+/*        height: 10%;*/
 /*        width: 90%;*/
-/*        font-size: 16pt;*/
-/*        letter-spacing: 0;*/
+/*        font-size: 36pt;*/
+/*        letter-spacing: 0px;*/
 /*        margin: 0 5%;*/
 /*    }*/
 /*}*/
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media screen and (max-width: 768px) {
-
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media screen and (max-width: 992px) {}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media screen and (max-width: 1200px) { }
+/**!*/

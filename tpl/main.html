@@ -2,24 +2,24 @@
     <form method="post" method="post" enctype="multipart/form-data">
         <h1>PERCUSS</h1>
         <p>ФОТОРЕДАКТОР ОНЛАЙН</p>
-        <div class="upload-btn">ЗАГРУЗИТЬ<br>ФОТО</div>
-        <input type="file" class="upload-image-input" name="user_image" style="display: none" accept="image/jpeg, image/png">
+        <div id="upload-btn">ЗАГРУЗИТЬ<br>ФОТО</div>
+        <input type="file" id="upload-image-input" name="user_image" style="display: none" accept="image/jpeg, image/png">
         <p class="legend">ПЕРВЫЙ - <span>КОСМИЧЕСКИЙ</span></p>
     </form>
 </div>
 <div class="editing-form">
-    <div class="cancel-editing-form">
+    <div id="cancel-editing-form">
         <div class="cancel">&#10006;
         </div>
     </div>
     <div class="save-image">
-        <div class="save">&#10006;
+        <button data-download_img="URL_IMG">Скачать</button>
+        <div class="save">
         </div>
     </div>
-
     <div class="editing-zone">
         <div class="editing-zone-image">
-            <div class='editing-image'></div>
+            <div class="editing-image"></div>
         </div>
         <div class="editing-methods-zone">
             <div class="action-buttons action-choose-buttons">
@@ -30,15 +30,15 @@
                 <span class="cancel-method">-</span>
             </div>
             <div class="editing-methods">
-                <div class="editing-method editing-folder-presets"></div>
-                <div class="editing-method editing-folder-2"></div>
-                <div class="editing-method editing-folder-3"></div>
-                <div class="editing-method editing-folder-4"></div>
-                <div class="editing-method editing-folder-5"></div>
-                <div class="editing-method editing-folder-6"></div>
-                <div class="editing-method editing-folder-7"></div>
-                <div class="editing-method editing-folder-8"></div>
-                <div class="editing-method editing-folder-9"></div>
+                <div class="editing-method" id="editing-folder-presets"></div>
+                <div class="editing-method" id="editing-folder-2"></div>
+                <div class="editing-method" id="editing-folder-3"></div>
+                <div class="editing-method" id="editing-folder-4"></div>
+                <div class="editing-method" id="editing-folder-5"></div>
+                <div class="editing-method" id="editing-folder-6"></div>
+                <div class="editing-method" id="editing-folder-7"></div>
+                <div class="editing-method" id="editing-folder-8"></div>
+                <div class="editing-method" id="editing-folder-9"></div>
             </div>
             <div class="editing-presets">
                 <span class="presets-name">БАЗОВЫЕ ПРЕСЕТЫ</span>
