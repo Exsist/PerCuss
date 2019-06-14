@@ -136,7 +136,7 @@ div.content.main p span {
 
     /* editing zone */
     div.editing-form {
-        display: block;
+        display: none;
         position: fixed;
         top: 0;
         width: 100%;
@@ -149,31 +149,38 @@ div.content.main p span {
         width: 10%;
         height: 100%;
         right: 0;
-        background: linear-gradient(to left, rgba(150,150,150,0.2) 0%,rgba(150,150,150,0) 100%);
+        background: linear-gradient(to left, rgba(208, 129, 77, 0.1) 0%,rgba(150,150,150,0) 100%);
         color: #d3d3d3;
     }
     div.editing-form #cancel-editing-form #cancel {
         text-align: center;
         color: #d0814d;
         font-size: 30pt;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 50%;
+        top: 5%;
+        transform: translate(-50%, -50%);
     }
     div.editing-form #save-image  {
         position: absolute;
         width: 10%;
         height: 100%;
         left: 0;
-        background: linear-gradient(to right, rgba(150,150,150,0.2) 0%,rgba(150,150,150,0) 100%);
+        background: linear-gradient(to right, rgba(185, 121, 255, 0.05) 0%,rgba(150,150,150,0) 100%);
         color: #d3d3d3;
     }
     div.editing-form #save-image #save {
         text-align: center;
         color: #d0814d;
-        font-size: 30pt;
-        width: 50px;
-        height: 50px;
-        background-color: #b3b3b3;
-        background-image: url("/static/images/icons/download.png");
-        background-size: auto;
+        font-size: 26pt;
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        left: 50%;
+        top: 5%;
+        transform: translate(-50%, -50%);
     }
     div.editing-form .editing-zone {
         position: absolute;
@@ -280,20 +287,6 @@ div.content.main p span {
     }
     /* editing zone */
 
-    /* descriptrion */
-    .description {
-        font-size: 16pt;
-        letter-spacing: 10px;
-        font-family: AkrobatThin;
-    }
-    .description b{
-        color: #d0814d;
-        font-family: AkrobatRegular;
-    }
-
-
-    /* descriptrion */
-
     /* login/register zone*/
     div.login-form {
         display: none;
@@ -362,6 +355,18 @@ div.content.main p span {
     /* login/register zone*/
 /* main template */
 
+/* descriptrion */
+.description {
+    font-size: 16pt;
+    letter-spacing: 3px;
+    font-family: AkrobatThin;
+}
+.description span{
+    color: #d0814d;
+    font-family: AkrobatSemiBold;
+}
+/* descriptrion */
+
 /* possibility template */
 div.pos-image {
     background-color: #d0814d;
@@ -374,6 +379,34 @@ div.pos-image.cut {
     background-size: auto;
 }
 /* possibility template */
+/* loader */
+.loader-action {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+.loader {
+    position: fixed;
+    left: 47.5vw;
+    top: 46vh;
+    border: 4px solid #b3b3b3;
+    border-top: 4px solid #d0814d;
+    border-bottom: 4px dashed #b979ff;
+    border-radius: 50%;
+    width: 4vw;
+    height: 4vw;
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* loader */
+
 
 /* footer */
 footer {

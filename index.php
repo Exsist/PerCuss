@@ -31,74 +31,34 @@ switch ($path){
 //        login($connect, $login, $password);
         break;
     case '/preset/effect/base/1':
-        $image = new Imagick(PATH_TO_UPLOADS  . $_SESSION['edit_name_image']);
-        $image->contrastImage(-10);
-        $image->modulateImage(100,130, 100);
-        $image->levelImage(0, 1.5, 65535);
-        $image_width = $image->getImageWidth();
-        $image_height = $image->getImageHeight();
-        $noise = new Imagick();
-        $noise->newImage($image_width, $image_height, "white");
-        $noise->addNoiseImage(imagick::NOISE_RANDOM, imagick::CHANNEL_GRAY);
-        $noise->setImageOpacity(0.3);
-        $noise->modulateImage(100,0, 100);
-        $image->compositeImage($noise, imagick::COMPOSITE_MULTIPLY, 0, 0, imagick::CHANNEL_DEFAULT);
-        unlink(PATH_TO_UPLOADS . $_SESSION['counter_modified_image'] . $_SESSION['edit_name_image']);
-        if (!isset($_SESSION['counter_modified_image'])) {
-            $_SESSION['counter_modified_image'] = 1;
-        } else {
-            $_SESSION['counter_modified_image']++;
-        }
-        $image->writeImage(PATH_TO_UPLOADS . $_SESSION['counter_modified_image'] . $_SESSION['edit_name_image']);
-        $image->writeImage(PATH_TO_UPLOADS . $_SESSION['edit_name_image']);
+        $image = new Effects();
+        $image->base_1_effect_1();
         break;
     case '/preset/effect/base/2':
-        $image = new Imagick(PATH_TO_UPLOADS . $_SESSION['edit_name_image']);
-        $image->contrastImage(-10);
-        $image->modulateImage(100,0, 100);
-        $image->levelImage(0, 1.5, 65535);
-        $image_width = $image->getImageWidth();
-        $image_height = $image->getImageHeight();
-        $noise = new Imagick();
-        $noise->newImage($image_width, $image_height, "white");
-        $noise->addNoiseImage(imagick::NOISE_RANDOM, imagick::CHANNEL_GRAY);
-        $noise->setImageOpacity(0.3);
-        $noise->modulateImage(100,0, 100);
-        $image->compositeImage($noise, imagick::COMPOSITE_MULTIPLY, 0, 0, imagick::CHANNEL_DEFAULT);
-        unlink(PATH_TO_UPLOADS . $_SESSION['counter_modified_image'] . $_SESSION['edit_name_image']);
-        if (!isset($_SESSION['counter_modified_image'])) {
-            $_SESSION['counter_modified_image'] = 1;
-        } else {
-            $_SESSION['counter_modified_image']++;
-        }
-        $image->writeImage(PATH_TO_UPLOADS . $_SESSION['counter_modified_image'] . $_SESSION['edit_name_image']);
-        $image->writeImage(PATH_TO_UPLOADS . $_SESSION['edit_name_image']);
+        $image = new Effects();
+        $image->base_1_effect_2();
         break;
 
     case '/cancel':
         unlink(PATH_TO_UPLOADS . $_SESSION['counter_modified_image'] . $_SESSION['edit_name_image']);
         unlink(PATH_TO_UPLOADS . $_SESSION['edit_name_image']);
         unlink(PATH_TO_UPLOADS . $_SESSION['name_image']);
+        unset($_SESSION['counter_modified_image']);
+        unset($_SESSION['edit_name_image']);
+        unset($_SESSION['name_image']);
         break;
     case preg_match("#^/uploads/image/(?P<name_image>.+)$#", $path, $tmp):
         header('content-type: image/jpeg');
         $name_image = $tmp['name_image'];
         break;
     case '/download/image':
-        // Копирование видоизменнёного файла в уже готовый к скачке файл
-        copy("upload/" . $_SESSION['edit_name_image'], "upload/" . $_SESSION['name_image']);
-        // Имя скачиваемого файла
-        $file = "upload/" . $_SESSION['name_image'];
-        // Контент-тип означающий скачивание
+        copy('uploads/' . $_SESSION['edit_name_image'], 'uploads/' . $_SESSION['name_image']);
+        $path_image = 'uploads/' . $_SESSION['name_image'];
         header("Content-Type: application/octet-stream");
-        // Размер в байтах
         header("Accept-Ranges: bytes");
-        // Размер файла
-        header("Content-Length: ".filesize($file));
-        // Расположение скачиваемого файла
-        header("Content-Disposition: attachment; filename=".$file);
-        // Прочитать файл
-        readfile($file);
+        header("Content-Length: " . filesize($path_image ));
+        header("Content-Disposition: attachment; filename=" . $path_image );
+        readfile($path_image);
         break;
     default:
         include "tpl/main.html";

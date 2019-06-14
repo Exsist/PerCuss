@@ -1,0 +1,22 @@
+Options All -ExecCGI -Indexes -Includes +FollowSymLinks
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /index.php [L]
+RewriteCond %{REQUEST_URI} !-f
+RewriteRule ^/uploads/(.*)$ /uploads/image/$1 [L]
+
+#<ifModule mod_expires.c>
+#ExpiresActive On
+#
+##по умолчанию кеш в 5 секунд
+#ExpiresDefault "access 0 days"
+#
+## Включаем кэширование изображений и флэш на месяц
+## ExpiresByType image/x-icon "access 0 day"
+## ExpiresByType image/jpeg "access 0 day"
+## ExpiresByType image/png "access 0 day"
+## ExpiresByType image/gif "access 0 day"
+## ExpiresByType application/x-shockwave-flash "access 0 day"
+#
+#</ifModule>

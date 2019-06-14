@@ -36,8 +36,7 @@ function upload_image()
         } else {
             if (file_exists($file_path_name)) {
             } else {
-                move_uploaded_file($_FILES['user_image']['tmp_name'], "uploads/$file_path_name");
-                copy("uploads/$file_path_name", "uploads/$editing_file_path_name");
+                move_uploaded_file($_FILES['user_image']['tmp_name'], "uploads/$editing_file_path_name");
             }
         }
     }

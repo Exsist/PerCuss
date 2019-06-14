@@ -3,21 +3,9 @@
 
 class Effects
 {
-    public  $counter;
-
-    private function set_session_counter()
+    public function base_1_effect_1()
     {
-        if (session_id()) {} else {session_start();}
-        $counter = $_SESSION['image_counter'];
-        $_SESSION['image_counter'] = $counter++;
-    }
-
-
-    public function effect_base_1($path_to_image, $editing_file_path_name)
-    {
-        set_session_counter();
-
-        $image = new Imagick($path_to_image . $editing_file_path_name);
+        $image = new Imagick(PATH_TO_UPLOADS  . $_SESSION['edit_name_image']);
         $image->contrastImage(-10);
         $image->modulateImage(100,130, 100);
         $image->levelImage(0, 1.5, 65535);
@@ -26,17 +14,22 @@ class Effects
         $noise = new Imagick();
         $noise->newImage($image_width, $image_height, "white");
         $noise->addNoiseImage(imagick::NOISE_RANDOM, imagick::CHANNEL_GRAY);
-        $noise->setImageOpacity(0.3);
+        $noise->setImageOpacity(0.5);
         $noise->modulateImage(100,0, 100);
-        $noise->writeImage($path_to_image . 'noise.png');
         $image->compositeImage($noise, imagick::COMPOSITE_MULTIPLY, 0, 0, imagick::CHANNEL_DEFAULT);
-        $image->writeImage($path_to_image . 'editing-' . $_SESSION['image_counter'] . $editing_file_path_name);
+        unlink(PATH_TO_UPLOADS . $_SESSION['counter_modified_image'] . $_SESSION['edit_name_image']);
+        if (!isset($_SESSION['counter_modified_image'])) {
+            $_SESSION['counter_modified_image'] = 1;
+        } else {
+            $_SESSION['counter_modified_image']++;
+        }
+        $image->writeImage(PATH_TO_UPLOADS . $_SESSION['counter_modified_image'] . $_SESSION['edit_name_image']);
+        $image->writeImage(PATH_TO_UPLOADS . $_SESSION['edit_name_image']);
     }
 
-    function effect_base_2($path_to_image, $editing_file_path_name )
+    function base_1_effect_2()
     {
-        set_session_counter();
-        $image = new Imagick($path_to_image . $editing_file_path_name);
+        $image = new Imagick(PATH_TO_UPLOADS . $_SESSION['edit_name_image']);
         $image->contrastImage(-10);
         $image->modulateImage(100,0, 100);
         $image->levelImage(0, 1.5, 65535);
@@ -45,10 +38,16 @@ class Effects
         $noise = new Imagick();
         $noise->newImage($image_width, $image_height, "white");
         $noise->addNoiseImage(imagick::NOISE_RANDOM, imagick::CHANNEL_GRAY);
-        $noise->setImageOpacity(0.3);
+        $noise->setImageOpacity(0.5);
         $noise->modulateImage(100,0, 100);
-        $noise->writeImage($path_to_image . 'noise.png');
         $image->compositeImage($noise, imagick::COMPOSITE_MULTIPLY, 0, 0, imagick::CHANNEL_DEFAULT);
-        $image->writeImage($path_to_image . 'editing-' . $_SESSION['image_counter'] . $editing_file_path_name);
+        unlink(PATH_TO_UPLOADS . $_SESSION['counter_modified_image'] . $_SESSION['edit_name_image']);
+        if (!isset($_SESSION['counter_modified_image'])) {
+            $_SESSION['counter_modified_image'] = 1;
+        } else {
+            $_SESSION['counter_modified_image']++;
+        }
+        $image->writeImage(PATH_TO_UPLOADS . $_SESSION['counter_modified_image'] . $_SESSION['edit_name_image']);
+        $image->writeImage(PATH_TO_UPLOADS . $_SESSION['edit_name_image']);
     }
 }
