@@ -9,13 +9,10 @@
 </div>
 <div class="editing-form">
     <div id="cancel-editing-form">
-        <div class="cancel">&#10006;
-        </div>
+        <div id="cancel">&#10006;</div>
     </div>
-    <div class="save-image">
-        <button data-download_img="URL_IMG">Скачать</button>
-        <div class="save">
-        </div>
+    <div id="save-image">
+        <div id="save"></div>
     </div>
     <div class="editing-zone">
         <div class="editing-zone-image">
@@ -30,8 +27,8 @@
                 <span class="cancel-method">-</span>
             </div>
             <div class="editing-methods">
-                <div class="editing-method" id="editing-folder-presets"></div>
-                <div class="editing-method" id="editing-folder-2"></div>
+                <div class="editing-method" id="editing-preset-1"></div>
+                <div class="editing-method" id="editing-preset-2"></div>
                 <div class="editing-method" id="editing-folder-3"></div>
                 <div class="editing-method" id="editing-folder-4"></div>
                 <div class="editing-method" id="editing-folder-5"></div>
@@ -47,6 +44,22 @@
                 <div class="editing-method editing-preset-base-3"></div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="login-form">
+    <div class="cancel-editing-form">
+        <div class="cancel">
+        </div>
+    </div>
+    <div class="login-zone">
+        <form method="post" class="login-content">
+            <h2>Введите логин:</h2>
+            <input class='text' type="text"  name="login">
+            <h2>Введите пароль:</h2>
+            <input class='text' type="text" name="password"><br>
+            <input class='button' type="submit" value="ЗАЛОГИНИТЬСЯ">
+        </form>
     </div>
 </div>
 

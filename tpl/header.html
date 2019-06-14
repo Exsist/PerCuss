@@ -7,6 +7,7 @@
     <script src="/static/js/jquery-3.3.1.min.js"></script>
     <script src="/static/js/jquery.session.js"></script>
     <script src="/static/js/xhr.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <!--    <script src="/static/js/scripts.js"></script>-->
 </head>
 <body>
@@ -23,6 +24,6 @@
         <a class="<?php if ($_SERVER['REQUEST_URI'] == '/description') {echo 'active';} else {echo '';}?>" href="/description" >ОПИСАНИЕ</a>
         <a class="<?php if ($_SERVER['REQUEST_URI'] == '/album') {echo 'active';} else {echo '';}?>" href="/album">АЛЬБОМ</a>
         <a class="<?php if ($_SERVER['REQUEST_URI'] == '/possibility') {echo 'active';} else {echo '';}?>" href="/possibility">ВОЗМОЖНОСТИ</a>
-        <a href="#" id="login">LOGIN</a>
+        <a id="login">LOGIN</a>
     </div>
 </menu>

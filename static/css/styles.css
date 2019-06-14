@@ -136,7 +136,7 @@ div.content.main p span {
 
     /* editing zone */
     div.editing-form {
-        display: none;
+        display: block;
         position: fixed;
         top: 0;
         width: 100%;
@@ -152,10 +152,28 @@ div.content.main p span {
         background: linear-gradient(to left, rgba(150,150,150,0.2) 0%,rgba(150,150,150,0) 100%);
         color: #d3d3d3;
     }
-    div.editing-form #cancel-editing-form .cancel {
+    div.editing-form #cancel-editing-form #cancel {
         text-align: center;
         color: #d0814d;
         font-size: 30pt;
+    }
+    div.editing-form #save-image  {
+        position: absolute;
+        width: 10%;
+        height: 100%;
+        left: 0;
+        background: linear-gradient(to right, rgba(150,150,150,0.2) 0%,rgba(150,150,150,0) 100%);
+        color: #d3d3d3;
+    }
+    div.editing-form #save-image #save {
+        text-align: center;
+        color: #d0814d;
+        font-size: 30pt;
+        width: 50px;
+        height: 50px;
+        background-color: #b3b3b3;
+        background-image: url("/static/images/icons/download.png");
+        background-size: auto;
     }
     div.editing-form .editing-zone {
         position: absolute;
@@ -261,6 +279,21 @@ div.content.main p span {
         float: right;
     }
     /* editing zone */
+
+    /* descriptrion */
+    .description {
+        font-size: 16pt;
+        letter-spacing: 10px;
+        font-family: AkrobatThin;
+    }
+    .description b{
+        color: #d0814d;
+        font-family: AkrobatRegular;
+    }
+
+
+    /* descriptrion */
+
     /* login/register zone*/
     div.login-form {
         display: none;

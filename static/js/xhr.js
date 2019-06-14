@@ -1,19 +1,16 @@
 
 var nameImage,
-    editingNameImage;
+    editingNameImage,
+    counterImage;
 
 window.onload = function () {
     var upload_btn = document.getElementById("upload-btn"),
         upload_input = document.getElementById("upload-image-input"),
-        preset_folder_button = document.getElementById("editing-folder-presets"),
+        preset_1_button = document.getElementById("editing-preset-1"),
+        preset_2_button = document.getElementById("editing-preset-2"),
         cancel_editing_form = document.getElementById("cancel-editing-form");
-    console.log(upload_btn);
-    console.log(upload_input);
-    console.log(preset_folder_button);
-    console.log(cancel_editing_form);
     upload_btn.addEventListener("click", function (event){
         upload_input.click();
-        console.log("success");
     });
     upload_input.addEventListener("change", function(event){
         var file_data = upload_input.files[0],
@@ -23,26 +20,39 @@ window.onload = function () {
         var xhr = new XMLHttpRequest();
         xhr.onload = function () {
             $(".editing-form").css('display', 'block');
-            imagePath = '/uploads/' + nameImage;
-            editingNameImage = '/uploads/editing-' + nameImage;
-            $('.editing-image').css('background-image', 'url("' + editingNameImage + '")');
+            editingNameImage = 'editing-' + file_data['name'];
+            $('.editing-image').css('background-image', 'url("/uploads/' + editingNameImage + '")');
+            counterImage = 0;
         };
-        xhr.open("post", "/upload/image", true);
+        xhr.open("post", "/upload/image", false);
         xhr.send(form_data);
     });
-    preset_folder_button.addEventListener("click", function () {
+    preset_1_button.addEventListener("click", function () {
         var xhr = new XMLHttpRequest();
         xhr.onload = function () {
-            $('.editing-image').css('background-image', 'url("' + editingNameImage + '")');
+            counterImage++;
+            $('.editing-image').css('background-image', 'url("/uploads/' + counterImage + editingNameImage + '")');
         };
         xhr.open("post", "/preset/effect/base/1", true);
         xhr.send();
-        console.log("success add filter raz");
+    });
+    preset_2_button.addEventListener("click", function () {
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            counterImage++;
+            $('.editing-image').css('background-image', 'url("/uploads/' + counterImage + editingNameImage + '")');
+        };
+        xhr.open("post", "/preset/effect/base/2", true);
+        xhr.send();
     });
     cancel_editing_form.addEventListener("click", function (event) {
-        $(".editing-form").css('display', 'none');
-        $('.editing-image').css('background-image', '');
-    })
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            $(".editing-form").css('display', 'none');
+            $('.editing-image').css('background-image', '');
+        };
+        xhr.open("post", "/cancel", true);
+        xhr.send();
+    });
 
 };
-
