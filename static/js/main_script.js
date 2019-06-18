@@ -39,7 +39,6 @@ window.onload = function () {
         loader_action = document.getElementsByClassName('loader-action'),
         editing_image = document.getElementsByClassName('editing-image'),
         editing_form = document.getElementsByClassName('editing-form'),
-        desc_img = document.getElementsByClassName('desc-img'),
         opas_save = 0.1,
         opas_cancel = 0.1;
 
@@ -180,7 +179,6 @@ window.onload = function () {
         loader_action[0].style.display = 'none';
     });
     download_image.addEventListener('mouseenter', function (event) {
-        console.log('mouseenter');
         var start = Date.now(),
             fps = 60,
             timer = setInterval(function() {
@@ -195,7 +193,6 @@ window.onload = function () {
 
     });
     download_image.addEventListener('mouseout', function (event) {
-        console.log('mouseout');
         var start = Date.now(),
             fps = 60,
             timer = setInterval(function() {
@@ -208,37 +205,5 @@ window.onload = function () {
                 download_image.style.background = 'linear-gradient(to right, rgba(185, 121, 255, ' + opas_save + ') 0%,rgba(150,150,150,0) 100%)';
             }, 1000 / fps);
 
-    });
-    desc_img[0].addEventListener('mouseenter', function (event) {
-        console.log('mouseenter');
-        var start = Date.now(),
-            bg_size = 60,
-            fps = 60,
-            i = 1,
-            timer = setInterval(function() {
-                bg_size = bg_size + i * 2;
-                var timePassed = Date.now() - start;
-                if (bg_size >= 100) {
-                    clearInterval(timer);
-                    return;
-                }
-                download_image.style.backgroundSize = bg_size + '%';
-            }, 1000 / fps);
-    });
-    desc_img[0].addEventListener('mouseout', function (event) {
-        console.log('mouseout');
-        var start = Date.now(),
-            bg_size = 100,
-            fps = 60,
-            i = 1,
-            timer = setInterval(function() {
-                bg_size = bg_size - i / 2;
-                var timePassed = Date.now() - start;
-                if (bg_size <= 60) {
-                    clearInterval(timer);
-                    return;
-                }
-                download_image.style.backgroundSize = bg_size + '%';
-            }, 1000 / fps);
     });
 };

@@ -29,6 +29,9 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+span {
+    color: #d0814d;
+}
 /* width */
 ::-webkit-scrollbar {
     display: none;
@@ -69,12 +72,15 @@ menu .menu-l a {
     padding-left: 50px;
     color: #b3b3b3;
     font-size: 16pt;
+    text-shadow: 0px 0px 0px rgba(0,0,0, 0.0);
+    -moz-transition: all 350ms ease;
+    -o-transition: all 350ms ease;
+    -webkit-transition: all 350ms ease;
 }
 menu .menu-l a:hover {
     text-shadow: 0px 0px 10px rgba(0,0,0, 0.7);
     color: #d0814d;
 }
-
 menu .menu-l .active {
     text-shadow: 0px 0px 10px rgba(0,0,0, 0.7);
     color: #d0814d;
@@ -86,9 +92,9 @@ div.content {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    max-width: 50%;
     text-align: center;
     width: 100%;
+    cursor: default;
 }
 div.content.main #upload-btn {
     width: 300px;
@@ -96,6 +102,7 @@ div.content.main #upload-btn {
     color: #b3b3b3;
     background-color: #383838;
     font-family: AkrobatThin;
+    font-weight: normal;
     font-size: 15px;
     letter-spacing: 10px;
     border-radius: 35px;
@@ -103,14 +110,20 @@ div.content.main #upload-btn {
     padding-top: 10px;
     text-align: center;
     border: 3px dashed #d0814d;
+    cursor: pointer;
+    -moz-transition: all 250ms ease;
+    -o-transition: all 250ms ease;
+    -webkit-transition: all 250ms ease;
 }
 div.content.main #upload-btn:focus {
     outline: none;
 }
 div.content.main #upload-btn:hover {
-    font-family: AkrobatBold;
-    border-style: solid;
+    font-weight: bolder;
+    letter-spacing: 15px;
+    border: 3px solid #d0814d;
 }
+
 div.content.main h1, div.content.main p {
     margin: 0;
 }
@@ -123,15 +136,28 @@ div.content.main p {
     font-family: AkrobatThin;
     padding-bottom: 60px;
 }
+div.content.main p.desc-site {
+    font-size: 16pt;
+    font-family: AkrobatThin;
+    padding-bottom: 60px;
+}
 div.content.main p.legend {
     padding-top: 60px;
     padding-bottom: 0;
+    font-weight: 500;
     letter-spacing: 10px;
+    cursor: default;
 }
 div.content.main p span {
     font-size: 16pt;
     font-family: AkrobatBold;
     color: #d0814d;
+    -moz-transition: all 250ms ease;
+    -o-transition: all 250ms ease;
+    -webkit-transition: all 250ms ease;
+}
+div.content.main p span:hover {
+    color: #b979ff;
 }
 
     /* editing zone */
@@ -151,6 +177,7 @@ div.content.main p span {
         right: 0;
         background: linear-gradient(to left, rgba(208, 129, 77, 0.1) 0%,rgba(150,150,150,0) 100%);
         color: #d3d3d3;
+        cursor: pointer;
     }
     div.editing-form #cancel-editing-form #cancel {
         text-align: center;
@@ -162,14 +189,16 @@ div.content.main p span {
         left: 50%;
         top: 5%;
         transform: translate(-50%, -50%);
+        text-shadow: 0px 0px 10px rgba(0,0,0, 0.7);
     }
     div.editing-form #save-image  {
         position: absolute;
         width: 10%;
         height: 100%;
         left: 0;
-        background: linear-gradient(to right, rgba(185, 121, 255, 0.05) 0%,rgba(150,150,150,0) 100%);
+        background: linear-gradient(to right, rgba(185, 121, 255, 0.1) 0%,rgba(150,150,150,0) 100%);
         color: #d3d3d3;
+        cursor: pointer;
     }
     div.editing-form #save-image #save {
         text-align: center;
@@ -181,6 +210,7 @@ div.content.main p span {
         left: 50%;
         top: 5%;
         transform: translate(-50%, -50%);
+        text-shadow: 0px 0px 10px rgba(0,0,0, 0.7);
     }
     div.editing-form .editing-zone {
         position: absolute;
@@ -226,16 +256,46 @@ div.content.main p span {
         position: absolute;
         margin: 50px 5% auto;
     }
-    div.editing-form .editing-zone .editing-methods-zone .editing-methods .editing-method {
+    div.editing-form .editing-zone .editing-methods-zone .editing-methods .editing-method  {
         width: 120px;
         height: 120px;
         display: inline-block;
         margin: 1.5%;
-        background-color: #d0814d;
+        background-color: #222;
         -webkit-border-radius: 20px;
         -moz-border-radius: 20px;
         border-radius: 20px;
+        cursor: pointer;
     }
+    div.editing-form .editing-zone .editing-methods-zone .editing-methods .editing-method .name-effect {
+    width: 100%;
+    height: 30%;
+    margin-top: 70%;
+    color: #b3b3b3;
+    text-align: center;
+    font-family: AkrobatSemiBold;
+    font-size: 14pt;
+    -webkit-border-radius: 0px 0px 20px 20px;
+    -moz-border-radius: 0px 0px 20px 20px;
+    border-radius: 0px 0px 20px 20px;
+    background: linear-gradient(to top, rgba(30,30,30, 0.8) 0%, rgba(30,30,30, 0) 100%);
+}
+    div.editing-form .editing-zone .editing-methods-zone .editing-methods #editing-base-preset-1,#editing-base-preset-2,#editing-base-preset-3,#editing-base-preset-4 {
+        background-size: cover;
+        background-position: center;
+    }
+    /*div.editing-form .editing-zone .editing-methods-zone .editing-methods #editing-base-preset-1 {
+        background-image: url("/static/images/effects/base-1.jpg");
+    }
+    div.editing-form .editing-zone .editing-methods-zone .editing-methods #editing-base-preset-2 {
+        background-image: url("/static/images/effects/base-2.jpg");
+    }
+    div.editing-form .editing-zone .editing-methods-zone .editing-methods #editing-base-preset-3 {
+        background-image: url("/static/images/effects/base-3.jpg");
+    }
+    div.editing-form .editing-zone .editing-methods-zone .editing-methods #editing-base-preset-4 {
+        background-image: url("/static/images/effects/base-4.jpg");
+    }*/
     div.editing-form .editing-zone .editing-methods-zone .editing-methods .editing-method.editing-folder-presets {
         background-color: #b3b3b3;
     }
@@ -244,10 +304,11 @@ div.content.main p span {
         display: none;
         width: 90%;
     }
-    div.editing-form .editing-zone .editing-methods-zone .editing-presets .presets-name {
+    div.editing-form .editing-zone .editing-methods-zone .editing-methods .presets-name {
         display: block;
         height: 30px;
         text-align: center;
+        font-size: 16pt;
     }
     div.editing-form .editing-zone .editing-methods-zone .editing-presets .editing-method {
         width: 120px;
@@ -259,6 +320,8 @@ div.content.main p span {
         -moz-border-radius: 20px;
         border-radius: 20px;
     }
+
+
     div.editing-form .editing-zone .editing-methods-zone .action-buttons {
         width: 90%;
         margin-left: -5px;
@@ -358,12 +421,92 @@ div.content.main p span {
 /* descriptrion */
 .description {
     font-size: 16pt;
-    letter-spacing: 3px;
-    font-family: AkrobatThin;
+    font-family: AkrobatRegular;
+
 }
 .description span{
     color: #d0814d;
     font-family: AkrobatSemiBold;
+}
+.description .block-description{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+    width: 60%;
+    height: 200px;
+    font-family: AkrobatRegular;
+    letter-spacing: normal;
+    font-size: 12pt;
+    align-content: center;
+}
+.h-desc {
+    font-family: AkrobatSemiBold;
+    font-size: 14pt;
+    color: #d0814d;
+}
+.description .description-sphere {
+    background: linear-gradient(to right, rgba(208, 129, 77, 0) 0%, rgba(208, 129, 77, 0) 40%,rgba(208, 129, 77, 0.5) 95%, rgba(208, 129, 77, 0) 100%);
+}
+.description .description-sphere .sphere-left {
+    width: 50%;
+    height: 100%;
+    float: left;
+    text-align: left;
+}
+.description .description-sphere .sphere-right {
+    width: 50%;
+    height: 100%;
+    float: right;
+
+}
+.desc-img {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+}
+.description .description-sphere .sphere-right .desc-img {
+    background-image: url("/static/images/background/instagram-sphere.png");
+    background-position: center;
+    background-size: 60%;
+
+    -moz-transition: all 350ms ease;
+    -o-transition: all 350ms ease;
+    -webkit-transition: all 350ms ease;
+}
+.description .description-sphere .sphere-right .desc-img:hover {
+    background-size: 100%;
+    background-position: center 20%;
+}
+.description .description-examples {
+    background: linear-gradient(to left, rgba(208, 129, 77, 0) 0%, rgba(208, 129, 77, 0) 40%,rgba(208, 129, 77, 0.5) 95%, rgba(208, 129, 77, 0) 100%);
+}
+.description .description-examples .examp-left {
+    width: 40%;
+    height: 100%;
+    float: left;
+}
+.description .description-examples .examp-right {
+    width: 50%;
+    height: 100%;
+    float: right;
+
+    text-align: right;
+}
+@keyframes imagemouseenter {
+    0% {
+        background-size: 60%;
+    }
+    100% {
+        background-size: 100%;
+    }
+}
+@keyframes imagemouseout {
+    0% {
+        background-size: 60%;
+    }
+    100% {
+        background-size: 100%;
+    }
 }
 /* descriptrion */
 
@@ -399,14 +542,35 @@ div.pos-image.cut {
     border-radius: 50%;
     width: 4vw;
     height: 4vw;
-    animation: spin 2s linear infinite;
+    animation: spin 2s ease infinite;
 }
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 /* loader */
-
+/* 404 */
+.bg404 {
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+.bg404 p.h-404 {
+    font-size: 20pt;
+}
+.bg404 p.h-404 span {
+    font-family: AkrobatSemiBold;
+}
+.bg404 ul {
+    font-size: 16pt;
+    list-style-type: none;
+    color: #d0814d;
+}
+.bg404 ul li {
+    font-size: 14pt;
+    color: #b3b3b3;
+}
+/* 404 */
 
 /* footer */
 footer {

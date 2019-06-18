@@ -1,8 +1,8 @@
 <div class="content main">
-    <form method="post" method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
         <h1>PERCUSS</h1>
-        <p>ФОТОРЕДАКТОР ОНЛАЙН</p>
-        <div id="upload-btn">ЗАГРУЗИТЬ<br>ФОТО</div>
+        <p class="desc-site">ФОТОРЕДАКТОР ОНЛАЙН</p>
+        <div id="upload-btn" class="ui-box border-inOutSpread">ЗАГРУЗИТЬ<br>ФОТО</div>
         <input type="file" id="upload-image-input" name="user_image" style="display: none" accept="image/jpeg, image/png">
         <p class="legend">ПЕРВЫЙ - <span>КОСМИЧЕСКИЙ</span></p>
     </form>
@@ -12,7 +12,7 @@
         <div id="cancel" class="fas fa-times"></div>
     </div>
     <div id="save-image">
-        <div id="save" class="fas fa-download"></div>
+        <a id="save" class="fas fa-download" target="_blank" download></a>
     </div>
     <div class="editing-zone">
         <div class="editing-zone-image">
@@ -27,10 +27,12 @@
                 <span class="cancel-method">-</span>
             </div>
             <div class="editing-methods">
-                <div class="editing-method" id="editing-preset-1"></div>
-                <div class="editing-method" id="editing-preset-2"></div>
-                <div class="editing-method" id="editing-folder-3"></div>
-                <div class="editing-method" id="editing-folder-4"></div>
+                <span class="presets-name">ПРЕСЕТЫ A</span>
+                <div class="editing-method" id="editing-base-preset-1"><div class="name-effect">A1</div></div>
+                <div class="editing-method" id="editing-base-preset-2"><div class="name-effect">A2</div></div>
+                <div class="editing-method" id="editing-base-preset-3"><div class="name-effect">A3</div></div>
+                <div class="editing-method" id="editing-base-preset-4"><div class="name-effect">A4</div></div>
+                <span class="presets-name">neБАЗОВЫЕ ПРЕСЕТЫ</span>
                 <div class="editing-method" id="editing-folder-5"></div>
                 <div class="editing-method" id="editing-folder-6"></div>
                 <div class="editing-method" id="editing-folder-7"></div>
